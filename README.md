@@ -4,10 +4,17 @@ Posts Project - представляет собой учебный проект,
 
 ## Как запустить проект
 
+### `yarn`
+Установка зависимостей
+
 ### `yarn dev`
 
 Запуститься клиентская часть на http://localhost:3000.
 Затем должен запусться json-server на http://localhost:3001
+
+## Стэк проекта
+
+React, Redux Toolkit, ant-design, styled-components, react-router-dom, json-server, axios
 
 ## Структура проекта
 

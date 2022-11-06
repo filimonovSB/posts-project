@@ -2,16 +2,16 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd'
 
-import { AuthContext } from '../components/context/AuthContext'
+import { isAuthContext } from '../components/context/AuthContext'
 
 const LoginPage = () => {
-  const { setAuth } = useContext(AuthContext)
+  const { setIsAuth } = useContext(isAuthContext)
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
-    setAuth(true)
-    localStorage.setItem('auth', 'true')
+    setIsAuth(true)
+    localStorage.setItem('isAuth', 'true')
     navigate('/about')
   }
 

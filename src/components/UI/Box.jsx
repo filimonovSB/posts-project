@@ -24,7 +24,7 @@ const Box = ({
       paddingRight: `${pr}px`,
       paddingBottom: `${pb}px`,
       paddingLeft: `${pl}px`,
-      width: `${w}`,
+      width: `${w}px`,
     }}
   >
     {children}

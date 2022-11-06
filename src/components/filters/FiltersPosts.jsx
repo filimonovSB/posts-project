@@ -1,21 +1,26 @@
 import React from 'react'
+import { Input, Select } from 'antd'
+import styled from 'styled-components'
 
 import Box from '../UI/Box'
-import { Input, Select } from 'antd'
 
 const { Search } = Input
 
-const FiltersPost = ({ filter, setfilter }) => {
+const FlexWrapper = styled.div`
+  display: flex;
+`
+
+const FiltersPost = ({ filters, setfilters }) => {
   const handleChangeSort = (value) => {
-    setfilter({ ...filter, sort: value })
+    setfilters({ ...filters, sort: value })
   }
   const handleSearch = (e) => {
-    setfilter({ ...filter, query: e.target.value })
+    setfilters({ ...filters, query: e.target.value })
   }
 
   return (
-    <Box w="500px" mt={15} mb={15}>
-      <div style={{ display: 'flex' }}>
+    <Box w={500} mt={15} mb={15}>
+      <FlexWrapper>
         <Box pr={10}>
           <h4>Сортировка постов</h4>
           <Select
@@ -24,7 +29,7 @@ const FiltersPost = ({ filter, setfilter }) => {
             defaultValue="none"
             style={{ width: 200 }}
             onChange={handleChangeSort}
-            value={filter.sort}
+            value={filters.sort}
           >
             <Select.Option value="none">Нет</Select.Option>
             <Select.Option value="title">По названию</Select.Option>
@@ -35,11 +40,11 @@ const FiltersPost = ({ filter, setfilter }) => {
           <h4>Поиск постов</h4>
           <Search
             placeholder="поиск постов"
-            value={filter.query}
+            value={filters.query}
             onChange={handleSearch}
           />
         </Box>
-      </div>
+      </FlexWrapper>
     </Box>
   )
 }

@@ -1,68 +1,43 @@
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 import React, { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import styled from 'styled-components'
 
-import { AuthContext } from './components/context/AuthContext'
-import MainMenu from './components/menu/MainMenu'
-import { privateRoutes, publicRoutes } from './router'
-import Logo from './components/assets/logo/Logo.svg'
+import { isAuthContext } from './components/context/AuthContext'
+import Router from './router/Router'
+import HeaderElement from './components/header/HeaderElement'
 
-const { Header, Content, Footer } = Layout
+const { Content, Footer } = Layout
+
+const ContentElement = styled(Content)`
+  padding: 0 50px;
+  min-height: 90vh;
+`
+const FooterElement = styled(Footer)`
+  text-align: center;
+`
 
 const App = () => {
-  const [Auth, setAuth] = useState(false)
+  const [isAuth,setIsAuth ] = useState(false)
   
   useEffect(() => {
-    if (localStorage.getItem('auth')) {
-      setAuth(true)
+    if (localStorage.getItem('isAuth')) {
+      setIsAuth(true)
     }
   }, [])
 
   return (
-    <AuthContext.Provider value={{ Auth, setAuth }}>
+    <isAuthContext.Provider value={{ isAuth, setIsAuth }}>
       <Layout>
-        <Header
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            height: '70px',
-            backgroundColor: 'white',
-          }}
-        >
-          <div>
-            <img src={Logo} height="55px" />
-          </div>
-          <MainMenu setAuth={setAuth} Auth={Auth} />
-        </Header>
-        <Content style={{ padding: '0 50px', minHeight: '90vh' }}>
+       <HeaderElement />
+        <ContentElement style={{  }}>
           <div className="site-layout-content">
-            {Auth ? (
-              <Routes>
-                {privateRoutes.map((route) => (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    element={route.element}
-                  />
-                ))}
-              </Routes>
-            ) : (
-              <Routes>
-                {publicRoutes.map((route) => (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    element={route.element}
-                  />
-                ))}
-              </Routes>
-            )}
+           <Router isAuth={isAuth}/>
           </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Filimonov Sergei ©2022</Footer>
+        </ContentElement>
+        <FooterElement >Filimonov Sergei ©2022</FooterElement>
       </Layout>
-    </AuthContext.Provider>
+    </isAuthContext.Provider>
   )
 }
 

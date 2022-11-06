@@ -41,7 +41,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         onOk={handleAddpost}
         onCancel={handleCancel}
       >
-        <Box w="350px" m={15}>
+        <Box w={350} m={15}>
           <label>Название поста</label>
           <Input
             placeholder="Введите заголовог поста"

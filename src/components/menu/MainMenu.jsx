@@ -1,14 +1,19 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Menu, Button } from 'antd'
+import { useContext } from 'react'
 
-const MainMenu = ({ Auth, setAuth }) => {
- 
+import { isAuthContext } from '../context/AuthContext'
+import style from './MainMenu.module.css'
+
+const MainMenu = () => {
+  const {isAuth, setIsAuth } = useContext(isAuthContext)
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    setAuth(false)
-    localStorage.removeItem('auth')
+    setIsAuth(false)
+    localStorage.removeItem('isAuth')
     navigate('/login')
   }
 
@@ -35,11 +40,10 @@ const MainMenu = ({ Auth, setAuth }) => {
   ]
 
   return (
-    <Menu
+    <Menu className = {style.main}
       mode="horizontal"
-      style={{ width: '400px', height: '70px' }}
       items={
-        Auth
+        isAuth
           ? privateLinks
           : publicLinks
       }

@@ -9,7 +9,7 @@ import CreatePost from '../components/create-post/CreatePost'
 import Box from '../components/UI/Box'
 import { changeId, changePage } from '../store/slices/postsSlice'
 import { selectSortedQueryPosts } from '../store/selectors/selectPosts'
-import FiltersPost from '../components/filters/FiltersPost'
+import FiltersPosts from '../components/filters/FiltersPosts'
 import { changeDeskPost } from '../store/thunks/changeDeskPost'
 import { changeTitlePost } from '../store/thunks/changeTitlePost'
 import ChangePost from '../components/change-post/ChangePost'
@@ -18,7 +18,7 @@ const PostsPages = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const [filter, setfilter] = useState({
+  const [filters, setfilters] = useState({
     sort: null,
     query: '',
   })
@@ -28,7 +28,7 @@ const PostsPages = () => {
   const page = useSelector((state) => state.posts.page)
   const countPages = useSelector((state) => state.posts.pages)
   const posts = useSelector((state) =>
-    selectSortedQueryPosts(state, filter.query, filter.sort),
+    selectSortedQueryPosts(state, filters.query, filters.sort),
   )
 
   const columns = [
@@ -93,7 +93,7 @@ const PostsPages = () => {
         setIsModalOpen={setIsModalNewPost}
         page={page}
       />
-      <FiltersPost filter={filter} setfilter={setfilter} />
+      <FiltersPosts filters={filters} setfilters={setfilters} />
       <ChangePost
         modalChange={modalChange}
         handleModalOK={handleModalOK}

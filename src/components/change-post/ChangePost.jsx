@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { Modal, Button, Input } from "antd";
-import Box from "../UI/Box";
-export default function ChangePost({
+import React, { useState } from 'react'
+import { Modal, Button, Input } from 'antd'
+
+import Box from '../UI/Box'
+
+const ChangePost = ({
   modalChange,
   handleModalOK,
   handleChangeDesk,
   handleChangeTitle,
-}) {
+}) => {
   const [newPost, setNewpost] = useState({
-    title: "",
-    desk: "",
-  });
+    title: '',
+    desk: '',
+  })
   return (
     <Modal
       open={modalChange}
@@ -27,7 +29,7 @@ export default function ChangePost({
             placeholder="Введите новое название"
             value={newPost.title}
             onChange={(e) => {
-              setNewpost({ ...newPost, title: e.target.value });
+              setNewpost({ ...newPost, title: e.target.value })
             }}
           />
         </Box>
@@ -39,7 +41,7 @@ export default function ChangePost({
             placeholder="Введите новое описание"
             value={newPost.desk}
             onChange={(e) => {
-              setNewpost({ ...newPost, desk: e.target.value });
+              setNewpost({ ...newPost, desk: e.target.value })
             }}
           />
         </Box>
@@ -48,5 +50,7 @@ export default function ChangePost({
         </Button>
       </Box>
     </Modal>
-  );
+  )
 }
+
+export default ChangePost

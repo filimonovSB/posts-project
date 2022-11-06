@@ -1,14 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { requestAPI } from "../../api";
-import { addComments } from "../slices/commentsSlice";
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { requestAPI } from '../../api'
+import { addComments } from '../slices/commentsSlice'
 export const laodComments = createAsyncThunk(
-  "@@comments/loadComments",
+  '@@comments/loadComments',
   async (id, { dispatch }) => {
-    const responce = await requestAPI.get(`comments`, {
+    const responce = await requestAPI.get('comments', {
       params: {
         postId: id,
       },
-    });
-    dispatch(addComments(responce.data));
+    })
+    dispatch(addComments(responce.data))
   }
-);
+)

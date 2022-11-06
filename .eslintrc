@@ -1,0 +1,31 @@
+{
+  "plugins": ["import"],
+  "rules": {
+    "no-unused-vars": "error", //не используемые переменные
+    "no-console": "warn", // запрет на console.log()
+    "quotes": ["error", "single"], // одиночные кавычки для js
+    "jsx-quotes": ["error", "prefer-double"], // двойные кавычки для jsx
+    "prefer-const": "error", // Предпочтение в использовании констант
+    "indent": ["warn", 2], // отступы 2 пробела
+    "max-len": ["error", { "code": 120 }], //макс длина в строку 120 символов
+    "comma-dangle": ["error", "always-multiline"], // запятая для последнего поля в объекте
+    "semi": ["warn", "never"], // точка с запятой чтобы были всегда
+    "import/order": [
+      //Приоритет импортов
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newline-between": "always-and-inside-groups"
+      }
+    ]
+  }
+}

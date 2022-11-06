@@ -9,7 +9,7 @@ const Box = ({
   pr = 0,
   pb = 0,
   pl = 0,
-  w = "100%",
+  w = '100%',
   children,
 }) => (
   <div
@@ -29,6 +29,6 @@ const Box = ({
   >
     {children}
   </div>
-);
+)
 
-export default Box;
+export default Box

@@ -1,5 +1,5 @@
 export const selectSortedQueryPosts = (state, query, sort) => {
-  return sort != "none"
+  return sort != null
     ? [...state.posts.posts]
         .sort((a, b) => a[sort].localeCompare(b[sort]))
         .filter((post) =>
@@ -7,5 +7,5 @@ export const selectSortedQueryPosts = (state, query, sort) => {
         )
     : state.posts.posts.filter((post) =>
         post.title.toLowerCase().includes(query.toLowerCase())
-      );
-};
+      )
+}

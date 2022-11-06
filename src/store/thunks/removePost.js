@@ -1,16 +1,16 @@
-import { requestAPI } from "../../api";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loadPosts } from "./loadPosts";
+import { requestAPI } from '../../api'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { loadPosts } from './loadPosts'
 export const removePost = createAsyncThunk(
-  "@@posts/removePost",
+  '@@posts/removePost',
   async (id, { dispatch, getState }) => {
     requestAPI
       .delete(`posts/${id}`)
-      .then((responce) => {
-        dispatch(loadPosts(getState().posts.page));
+      .then(() => {
+        dispatch(loadPosts(getState().posts.page))
       })
       .catch((error) => {
-        console.log(error);
-      });
-  }
-);
+        console.log(error)
+      })
+  },
+)

@@ -1,20 +1,25 @@
-import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Box from "../components/UI/Box";
-import { Card, Button } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { laodComments } from "../store/thunks/loadComments";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import React, { useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Card, Button } from 'antd'
+import { ArrowLeftOutlined } from '@ant-design/icons'
+
+import Box from '../components/UI/Box'
+import { laodComments } from '../store/thunks/loadComments'
+
+
 const CommentsPage = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const id = useParams().id;
-  const comments = useSelector((state) => state.comments);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const id = useParams().id
+
+  const comments = useSelector((state) => state.comments)
   useEffect(() => {
-    dispatch(laodComments(id));
-  }, []);
+    dispatch(laodComments(id))
+  }, [])
+
   return (
-    <div>
+    <>
       <Box mt={20}>
         <Button
           type="primary"
@@ -22,7 +27,7 @@ const CommentsPage = () => {
           icon={<ArrowLeftOutlined />}
           size="large"
           onClick={() => {
-            navigate(-1);
+            navigate(-1)
           }}
         />
         Вернуться к постам
@@ -30,10 +35,9 @@ const CommentsPage = () => {
       <Box mt={15} mb={15}>
         <h1>Пост {id}</h1>
         <div
-          className=""
           style={{
-            display: "flex",
-            flexWrap: "wrap",
+            display: 'flex',
+            flexWrap: 'wrap',
           }}
         >
           {comments.length ? (
@@ -42,7 +46,7 @@ const CommentsPage = () => {
                 key={comment.id}
                 title="Комментарий"
                 bordered={false}
-                style={{ width: "350px", margin: "10px" }}
+                style={{ width: '350px', margin: '10px' }}
               >
                 <h4>Название:</h4> {comment.name}
                 <h4>email:</h4> {comment.email}
@@ -55,8 +59,8 @@ const CommentsPage = () => {
           )}
         </div>
       </Box>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default CommentsPage;
+export default CommentsPage

@@ -1,29 +1,31 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { Form, Input, Button, Checkbox } from "antd";
-import { AuthContext } from "../components/context/AuthContext";
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Form, Input, Button, Checkbox } from 'antd'
+
+import { AuthContext } from '../components/context/AuthContext'
+
 const LoginPage = () => {
-  const { Auth, setAuth } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext)
+  const navigate = useNavigate()
+
   const handleLogin = (e) => {
-    e.preventDefault();
-    setAuth(true);
-    localStorage.setItem("auth", "true");
-    navigate("/about");
-  };
+    e.preventDefault()
+    setAuth(true)
+    localStorage.setItem('auth', 'true')
+    navigate('/about')
+  }
 
   return (
     <div
-      className=""
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "80vh",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '80vh',
       }}
     >
       <Form
-        style={{ width: "500px" }}
+        style={{ width: '500px' }}
         labelCol={{
           span: 4,
         }}
@@ -37,7 +39,7 @@ const LoginPage = () => {
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: 'Please input your username!',
             },
           ]}
         >
@@ -50,7 +52,7 @@ const LoginPage = () => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: 'Please input your password!',
             },
           ]}
         >
@@ -80,7 +82,7 @@ const LoginPage = () => {
         </Form.Item>
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

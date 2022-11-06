@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AboutPage = () => (
+const AboutPage = () => 
   <>
     <h1> О сайте</h1>
     <p>
@@ -9,6 +9,6 @@ const AboutPage = () => (
       нужно ввести команду 'yarn dev'
     </p>
   </>
-)
+
 
 export default AboutPage

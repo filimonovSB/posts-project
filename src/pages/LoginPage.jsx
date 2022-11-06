@@ -1,10 +1,18 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd'
+import styled from 'styled-components'
 
 import { isAuthContext } from '../components/context/AuthContext'
 
 const LoginPage = () => {
+  const FlexWrapper= styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  `
+
   const { setIsAuth } = useContext(isAuthContext)
   const navigate = useNavigate()
 
@@ -16,14 +24,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '80vh',
-      }}
-    >
+    <FlexWrapper>
       <Form
         style={{ width: '500px' }}
         labelCol={{
@@ -36,12 +37,6 @@ const LoginPage = () => {
         <Form.Item
           label="Логин"
           name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your username!',
-            },
-          ]}
         >
           <Input />
         </Form.Item>
@@ -49,12 +44,6 @@ const LoginPage = () => {
         <Form.Item
           label="Пароль"
           name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
         >
           <Input.Password />
         </Form.Item>
@@ -81,7 +70,7 @@ const LoginPage = () => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </FlexWrapper>
   )
 }
 

@@ -22,6 +22,4 @@ const HeaderElement = () =>
         <MainMenu/>
     </HeaderStyled>
   
-
-
 export default HeaderElement

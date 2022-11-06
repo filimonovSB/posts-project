@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux'
 import Box from '../UI/Box'
 import { addPost } from '../../store/thunks/addPost'
 
-
-const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
+const PostCreate = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [newPost, setNewPost] = useState({
     id: '1',
     title: '',
@@ -29,7 +29,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
   }
 
   return (
-    <div >
+    <>
       <Box mt={15} mb={15}>
         <Button type="primary" onClick={showModal}>
           Создать пост
@@ -58,8 +58,8 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
           </Box>
         </Box>
       </Modal>
-    </div>
+    </>
   )
 }
 
-export default CreatePost
+export default PostCreate

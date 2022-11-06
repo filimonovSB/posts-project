@@ -5,7 +5,7 @@ import { Card, Button } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 
 import Box from '../components/UI/Box'
-import { laodComments } from '../store/thunks/loadComments'
+import { loadComments } from '../store/thunks/loadComments'
 
 
 const CommentsPage = () => {
@@ -15,7 +15,7 @@ const CommentsPage = () => {
 
   const comments = useSelector((state) => state.comments)
   useEffect(() => {
-    dispatch(laodComments(id))
+    dispatch(loadComments(id))
   }, [])
 
   return (

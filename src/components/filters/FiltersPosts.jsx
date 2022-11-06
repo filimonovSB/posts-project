@@ -9,7 +9,6 @@ const { Search } = Input
 const FlexWrapper = styled.div`
   display: flex;
 `
-
 const FiltersPost = ({ filters, setfilters }) => {
   const handleChangeSort = (value) => {
     setfilters({ ...filters, sort: value })

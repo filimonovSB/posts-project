@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { requestAPI } from '../../api'
 import { addComments } from '../slices/commentsSlice'
 
-export const laodComments = createAsyncThunk(
+export const loadComments = createAsyncThunk(
   '@@comments/loadComments',
   async (id, { dispatch }) => {
     try {

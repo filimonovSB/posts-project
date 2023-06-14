@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import Box from '../UI/Box'
 
 const ListComments = ({comments}) => {
-
     const FlexWrapper = styled.div`
         display: flex;
         flex-wrap: wrap;
     `
+
     return (
         <Box mt={15} mb={15}>
             <FlexWrapper>

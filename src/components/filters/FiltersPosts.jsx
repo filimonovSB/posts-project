@@ -6,9 +6,6 @@ import Box from '../UI/Box'
 
 const { Search } = Input
 
-const FlexWrapper = styled.div`
-  display: flex;
-`
 const FiltersPost = ({ filters, setfilters }) => {
   const handleChangeSort = (value) => {
     setfilters({ ...filters, sort: value })
@@ -49,3 +46,7 @@ const FiltersPost = ({ filters, setfilters }) => {
 }
 
 export default FiltersPost
+
+const FlexWrapper = styled.div`
+  display: flex;
+`

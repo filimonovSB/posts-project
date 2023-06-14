@@ -9,13 +9,6 @@ import HeaderElement from './components/header/HeaderElement'
 
 const { Content, Footer } = Layout
 
-const ContentElement = styled(Content)`
-  padding: 0 50px;
-  min-height: 90vh;
-`
-const FooterElement = styled(Footer)`
-  text-align: center;
-`
 
 const App = () => {
   const [isAuth,setIsAuth ] = useState(false)
@@ -40,5 +33,13 @@ const App = () => {
     </isAuthContext.Provider>
   )
 }
+
+const ContentElement = styled(Content)`
+  padding: 0 50px;
+  min-height: 90vh;
+`
+const FooterElement = styled(Footer)`
+  text-align: center;
+`
 
 export default App

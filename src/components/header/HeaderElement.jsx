@@ -7,12 +7,6 @@ import Logo from '../assets/logo/Logo.svg'
 
 const { Header} = Layout
 
-const HeaderStyled = styled(Header)`
-  display: flex;
-  justify-Content: space-between;
-  height: 70px;
-  background-color: white;
-`
 
 const HeaderElement = () =>   
     <HeaderStyled>
@@ -23,3 +17,10 @@ const HeaderElement = () =>
     </HeaderStyled>
   
 export default HeaderElement
+
+const HeaderStyled = styled(Header)`
+  display: flex;
+  justify-Content: space-between;
+  height: 70px;
+  background-color: white;
+ `
